@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GoncharovTestTask.Models.Department>
+@{
+    ViewBag.Title = "department";
+}
+<h2>Отделы</h2>
+<div>
+
+    <p>
+        @Html.ActionLink("Добавить", "add")
+    </p>
+
+    <table class="table table-bordered table-responsive table-hover">
+
+        <tr>
+            <th>
+                <p style="margin-left: 25px;"> Отдел </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Этаж </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Удалить </p>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Departmentname)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Floor)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;">
+                        <a class="order-button" href="@Href("~/Department/del", item.Id)">Удалить</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+

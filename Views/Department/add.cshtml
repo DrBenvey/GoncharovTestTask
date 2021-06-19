@@ -1,0 +1,34 @@
+﻿@model GoncharovTestTask.Models.Department
+
+@{
+    ViewBag.Title = "add";
+}
+
+@using (Html.BeginForm())
+{
+
+<fieldset>
+    <legend>Отделы </legend>
+
+    <div class="editor-label">
+        Название отдела:
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Departmentname)
+    </div>
+
+    <div class="editor-label">
+        Этаж отдела:
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Floor)
+    </div>
+    <p></p>
+    <p>
+        <input type="submit" value="Добавить и вернуться назад" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться назад без добавления", "department")
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GoncharovTestTask.Models.Language>
+@{
+    ViewBag.Title = "language";
+}
+<h2>Языки</h2>
+<div>
+
+    <p>
+        @Html.ActionLink("Добавить", "add")
+    </p>
+
+    <table class="table table-bordered table-responsive table-hover">
+
+        <tr>
+            <th>
+                <p style="margin-left: 25px;"> Язык </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Удалить </p>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Languagename)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 50px;">
+                        <a class="order-button" href="@Href("~/Language/del", item.Id)">Удалить</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+

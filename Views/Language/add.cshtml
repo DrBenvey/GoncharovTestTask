@@ -1,0 +1,28 @@
+﻿@model GoncharovTestTask.Models.Language
+
+@{
+    ViewBag.Title = "add";
+}
+
+@using (Html.BeginForm())
+{
+
+<fieldset>
+    <legend>Языки </legend>
+
+    <div class="editor-label">
+        Название языка:
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Languagename)
+    </div>
+    <p></p>
+    <p>
+        <input type="submit" value="Добавить и вернуться назад" />
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад без добавления", "language")
+</div>

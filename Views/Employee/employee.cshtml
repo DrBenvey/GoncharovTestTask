@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GoncharovTestTask.Models.Employee>
+@{
+    ViewBag.Title = "employee";
+}
+<h2>Сотрудники</h2>
+<div>
+
+    <p>
+        @Html.ActionLink("Добавить", "add")
+    </p>
+
+    <table class="table table-bordered table-responsive table-hover">
+
+        <tr>
+            <th>
+                <p style="margin-left: 25px;"> Имя </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Фамилия </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Возраст </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Отдел </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Язык </p>
+            </th>
+            <th>
+                <p style="margin-left: 25px;"> Удалить/Изменить </p>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.FirstName)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.SecondName)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Age)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Department)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 25px;"> @Html.DisplayFor(modelItem => item.Language)</p>
+                </td>
+                <td>
+                    <p style="margin-left: 50px;">
+                        <a class="order-button" href="@Href("~/Employee/del", item.Id)">Удалить</a>
+                    </p>
+                    <p style="margin-left: 50px;">
+                        <a class="order-button" href="@Href("~/Employee/edit", item.Id)">Изменить</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
